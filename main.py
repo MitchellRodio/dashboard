@@ -4,4 +4,4 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
-    return str(session["logged_in"])
+    return str(session.get("logged_in"))
