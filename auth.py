@@ -1,10 +1,11 @@
-from flask import Blueprint, redirect, request, session
+from flask import Blueprint, redirect, request, session, url_for
 
 import urllib
 import requests
 
 from config import CLIENT_ID, AUTHORIZE_URL, MY_URL, CLIENT_SECRET, TOKEN_URL
 import users
+import discord_interaction
 
 scopes = "identify email guilds.join"
 
@@ -26,9 +27,8 @@ def token():
     }
     r = requests.post(TOKEN_URL, data=data, headers=headers)
     json = r.json()
-    print(json)
     if "access_token" in json:
-        session["discord_data"] = get_user(json["access_token"])
+        session["discord_data"] = discord_interaction.get_me(json["access_token"])
         session["logged_in"] = True
         session["access_token"] = json["access_token"]
         discord_id = session["discord_data"]["id"]
@@ -41,5 +41,4 @@ def token():
     else:
         session["logged_in"] = False
         session["access_token"] = None
-    
     return redirect(url_for("main.index"))
