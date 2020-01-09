@@ -2,6 +2,7 @@ from flask import Flask
 
 import database as db
 from auth import auth
+from main import main
 
 import string
 import random
@@ -9,6 +10,7 @@ import random
 app = Flask(__name__)
 
 app.register_blueprint(auth)
+app.register_blueprint(main)
 
 secret_key = "".join(random.choice(string.printable) for _ in range(32))
 app.secret_key = secret_key
