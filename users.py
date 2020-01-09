@@ -1,4 +1,6 @@
-import psycopg2
+from flask import session, request, url_for, redirect
+
+import functools
 
 import database as db
 
@@ -17,5 +19,19 @@ class User():
         conn.commit()
         db.put_conn(conn, cursor=cur)
 
+def logged_in(func):
+    @functools.wraps(func)
+    def decorated_function(*args, **kwargs):
+        user = get_user()
+        if user:
+            return func(user, *args, **kwargs)
+        else:
+            session["next"] = request.url_rule.rule
+            return redirect(url_for("auth.login"))
+    return decorated_function
 
-        
+def get_user():
+    if session.get("logged_in") == True:
+        return User(session["discord_data"]["id"])
+    else:
+        return None
