@@ -4,10 +4,9 @@ import os
 
 # If having trouble writing BLOB (BYTEA) data into Postgres try encoding it into a string with base64 and then store as text
 
-print(os.environ)
-connection_pool = psycopg2.pool.ThreadedConnectionPool(5, 20, os.environ["DATABASE"])
-print(os.environ)
-print(os.environ["DATABASE"])
+connection_pool = psycopg2.pool.ThreadedConnectionPool(5, 20, os.environ["DATABASE_URL"])
+print("Connecting to " + os.environ["DATABASE_URL"])
+
 def get_conn(cursor=True):
     conn = connection_pool.getconn()
     if cursor:
