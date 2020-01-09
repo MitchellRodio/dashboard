@@ -27,6 +27,7 @@ def token():
     }
     r = requests.post(TOKEN_URL, data=data, headers=headers)
     json = r.json()
+    print(json)
     if "access_token" in json:
         session["discord_data"] = discord_interaction.get_me(json["access_token"])
         session["logged_in"] = True
