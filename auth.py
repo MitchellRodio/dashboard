@@ -21,7 +21,7 @@ def login():
 @auth.route("/token")
 def token():
     code = request.args.get("code")
-    data = {"client_id" :CLIENT_ID, "client_secret": CLIENT_SECRET, "grant_type": "authorization_code", "code": code, "scope": scopes, "redirect_uri": f"{MY_URL}/token"}
+    data = {"client_id": CLIENT_ID, "client_secret": CLIENT_SECRET, "grant_type": "authorization_code", "code": code, "scope": scopes, "redirect_uri": f"{MY_URL}/token"}
     headers = {
         "Content-Type": "application/x-www-form-urlencoded"
     }
