@@ -15,7 +15,10 @@ body {
 }
 
 .content-title {
-
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    color: #ffffffb3;
+    text-align: center;
 }
 
 .button {
