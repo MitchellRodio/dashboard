@@ -20,6 +20,7 @@ body {
     margin: auto;
     width: 40%;
     color: #ffffffb3;
+    display: block;
 }
 
 .button {
