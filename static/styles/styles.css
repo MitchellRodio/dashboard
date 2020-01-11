@@ -1,9 +1,19 @@
-.button {
-    background-color: #7B4FFE;
-    color: white;
+a {
+    text-decoration: none;
 }
 
 .content {
     background-color: 151515;
     border-radius: 8px;
+    width: 64%;
+    margin: 0 auto;
+}
+
+.button {
+    background-color: #7B4FFE;
+    color: white;
+    width: 90%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin: 0 auto;
 }
