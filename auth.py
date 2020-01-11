@@ -43,7 +43,7 @@ def token():
                 return redirect(next_url)
         else:
             discord_interaction.kick_user(GUILD_ID, user.discord_id)
-            return redirect("auth.enter_key")
+            return redirect(url_for("auth.enter_key"))
     else:
         session["logged_in"] = False
         session["access_token"] = None
