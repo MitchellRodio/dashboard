@@ -56,9 +56,11 @@ def enter_key(user):
         key = request.form.get("key")
         success = user.create_membership(key)
         if success:
+            print("Success!")
             user.join(session["access_token"])
             return redirect("main.dashboard")
         else:
+            print("Failure!")
             return render_template("enter_key.html", errors=("Key not found.",))
     else:
         return render_template("enter_key.html")
