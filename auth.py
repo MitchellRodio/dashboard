@@ -9,7 +9,7 @@ import discord_interaction
 
 scopes = "identify email guilds.join"
 
-auth = Blueprint("blueprint", __name__)
+auth = Blueprint("auth", __name__)
 
 @auth.route("/login")
 def login():
