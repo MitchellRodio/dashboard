@@ -11,7 +11,7 @@ body {
     border-radius: 8px;
     width: 64%;
     margin: 0 auto;
-    box-sizing: border-box;
+    box-sizing: padding-box;
 }
 
 .button {
