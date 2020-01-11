@@ -10,9 +10,10 @@ body {
     background-color: #151515;
     border-radius: 8px;
     width: 40%;
-    margin: auto;
+    margin: 0 auto;
     padding: 32px;
     top: 50%;
+    position: absolute;
 }
 
 .content-title {
