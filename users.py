@@ -38,7 +38,7 @@ class User():
     def create_membership(self, key):
         conn, cur = db.get_conn()
         cur.execute("SELECT duration FROM keys WHERE key=%s", (key,))
-        result = cur.fetcheone()
+        result = cur.fetchone()
         membership = False
         if result:
             cur.execute("DELETE FROM keys WHERE key=%s", (key,))
