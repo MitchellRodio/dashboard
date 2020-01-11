@@ -9,7 +9,7 @@ body {
 .content {
     background-color: #151515;
     border-radius: 8px;
-    width: 48%;
+    width: 40%;
     margin: auto;
     padding: 64px;
 }
@@ -17,8 +17,9 @@ body {
 .content-title {
     font-family: 'Roboto', sans-serif;
     font-size: 26px;
+    margin: auto;
+    width: 40%;t
     color: #ffffffb3;
-    text-align: center;
 }
 
 .button {
