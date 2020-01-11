@@ -24,5 +24,9 @@ body {
     padding-bottom: 16px;
     font-family: 'Roboto', sans-serif;
     display: block;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+.button:hover {
+
 }
