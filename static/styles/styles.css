@@ -35,9 +35,9 @@ body {
     display: block;
     font-size: 20px;
     transition-duration: 1s;
-    border-radius: 8px;
 }
 
 .button:hover {
-    background-color: #6532fe; 
+    background-color: #6532fe;
+    border-radius: 8px;
 }
