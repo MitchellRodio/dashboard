@@ -14,6 +14,10 @@ body {
     padding: 64px;
 }
 
+.content-title {
+
+}
+
 .button {
     background-color: #7B4FFE;
     color: white;
@@ -25,9 +29,9 @@ body {
     font-family: 'Roboto', sans-serif;
     display: block;
     font-size: 20px;
+    transition-duration: 1s;
 }
 
 .button:hover {
-    background-color: #6532fe;
-    transition-duration: 1s;
+    background-color: #6532fe; 
 }
