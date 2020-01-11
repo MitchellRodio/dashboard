@@ -15,7 +15,7 @@ class User():
         return not not result# Convert to bool
     def create(self):
         conn, cur = db.get_conn()
-        cur.execute("INSERT INTO users discord_id VALUES (%s)", (self.client_id,))
+        cur.execute("INSERT INTO users (discord_id) VALUES (%s)", (self.client_id,))
         conn.commit()
         db.put_conn(conn, cursor=cur)
 
