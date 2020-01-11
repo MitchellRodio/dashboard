@@ -2,6 +2,15 @@ a {
     text-decoration: none;
 }
 
+input[type=text] {
+    width: 90%;
+    border: 1px solid #ffffffb3;
+    color: #ffffffb3;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    background-color: #151515;
+}
+
 body {
     background-color: #090b16;
 }
