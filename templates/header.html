@@ -7,11 +7,11 @@
 
 <body>
     {% if errors %}
-        {% for error in errors %}
-            <p>
-                Error: {{error}}
-            </p>
-        {% endfor %}
+        <p>
+            {% for error in errors %}
+                Error: {{error}}<br>
+            {% endfor %}
+        </p>
     {% endif %}
 </body>
 {% endblock %}
