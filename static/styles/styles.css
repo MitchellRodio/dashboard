@@ -6,14 +6,17 @@ body {
     background-color: #090b16;
 }
 
-.content {
+.content { /*If I need to add other divs later on I could place this inside a container element */
     background-color: #151515;
     border-radius: 8px;
     width: 40%;
-    margin: 0 auto;
+    margin: 0;
     padding: 32px;
     top: 50%;
+    left: 50%;
     position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .content-title {
