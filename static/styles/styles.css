@@ -23,4 +23,5 @@ body {
     padding-top: 16px;
     padding-bottom: 16px;
     font-family: 'Roboto', sans-serif;
+    display: block;
 }
