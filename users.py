@@ -32,7 +32,7 @@ class User():
         else:
             return Membership(self.discord_id, 0, 0)
     def join(self, access_token):
-        discord_interaction.join_user(self, GUILD_ID, self.discord_id)
+        discord_interaction.join_user(access_token, GUILD_ID, self.discord_id)
     def kick(self):
         discord_interaction.kick_user(GUILD_ID, self.discord_id)
     def create_membership(self, key):
