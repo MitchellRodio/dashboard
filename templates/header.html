@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 
-{% block body %}
-<head>
+<html>
+    <head>
+        <style></style>
+    </head>
 
-</head>
+    <body>
+        {% if errors %}
+            <p>
+                {% for error in errors %}
+                    Error: {{error}}<br>
+                {% endfor %}
+            </p>
+        {% endif %}
+    </body>
 
-<body>
-    {% if errors %}
-        <p>
-            {% for error in errors %}
-                Error: {{error}}<br>
-            {% endfor %}
-        </p>
-    {% endif %}
-</body>
-{% endblock %}
+    {% block body %}
+
+    {% endblock %}
+
+</html>

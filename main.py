@@ -1,4 +1,4 @@
-from flask import Blueprint, session
+from flask import Blueprint, session, render_template
 
 import users
 
@@ -6,7 +6,7 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
-    return str(session.get("logged_in"))
+    return render_template("index.html")
 
 @main.route("/dashboard")
 @users.logged_in
