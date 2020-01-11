@@ -27,7 +27,6 @@ def token():
     }
     r = requests.post(TOKEN_URL, data=data, headers=headers)
     json = r.json()
-    print(json)
     if "access_token" in json:
         session["discord_data"] = discord_interaction.get_me(json["access_token"])
         session["logged_in"] = True
@@ -43,11 +42,11 @@ def token():
                 return redirect(next_url)
         else:
             discord_interaction.kick_user(GUILD_ID, user.discord_id)
-            return redirect(url_for("auth.enter_key"))
     else:
         session["logged_in"] = False
         session["access_token"] = None
-    return redirect(url_for("main.index"))
+        return redirect(url_for("main.index"))
+    return redirect(url_for("auth.enter_key"))
 
 @auth.route("/key", methods=["GET", "POST"])
 @users.logged_in
