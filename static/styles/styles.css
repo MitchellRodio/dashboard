@@ -12,6 +12,7 @@ input[type=text] {
     background-color: #151515;
     display: block;
     border-radius: 8px;
+    padding: 8px;
 }
 
 body {
