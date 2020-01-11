@@ -59,6 +59,6 @@ def enter_key(user):
             user.join(session["access_token"])
             return redirect("main.dashboard")
         else:
-            return render_template("key.html", errors=["Key not found."])
+            return render_template("key.html", errors=("Key not found.",))
     else:
         return render_template("key.html")

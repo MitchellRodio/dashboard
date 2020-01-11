@@ -13,6 +13,8 @@ class Membership():
         self.created_at = created_at
         self.duration = duration
     def is_active(self):
+        if self.duration == 0:
+            return False
         current_time = time.time()
         return current_time - self.created_at < self.duration
 
@@ -20,8 +22,6 @@ class User():
     def __init__(self, discord_id):
         self.discord_id = discord_id
         self.membership = self.get_membership()
-        if self.membership.is_active():
-            pass
     def get_membership(self):
         conn, cur = db.get_conn()
         cur.execute("SELECT started_at, duration FROM memberships WHERE discord_id=%s", (self.discord_id,))
@@ -29,6 +29,8 @@ class User():
         db.put_conn(conn, cursor=cur)
         if result:
             return Membership(self.discord_id, result[0], result[1])
+        else:
+            return Membership(self.discord_id, 0, 0)
     def join(self, access_token):
         discord_interaction.join_user(self, GUILD_ID, self.discord_id)
     def kick(self):
@@ -46,7 +48,6 @@ class User():
             membership = True
         db.put_conn(conn, cursor=cur)
         return membership
-
     def exists(self):
         conn, cur = db.get_conn()
         cur.execute("SELECT * FROM users WHERE discord_id=%s", (self.discord_id,))
