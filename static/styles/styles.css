@@ -4,6 +4,7 @@ a {
 
 input[type=text] {
     width: 90%;
+    margin: 8px auto;
     border: 1px solid #ffffffb3;
     color: #ffffffb3;
     font-family: 'Roboto', sans-serif;
@@ -32,17 +33,16 @@ body {
 .content-title {
     font-family: 'Roboto', sans-serif;
     font-size: 26px;
-    margin: auto;
-    width: 40%;
     color: #ffffffb3;
     display: block;
+    width: 90%;
+    margin: 8px auto;
 }
 
 .button {
     background-color: #7B4FFE;
     color: white;
     width: 90%;
-    text-align: center;
     margin: auto;
     padding-top: 16px;
     padding-bottom: 16px;
