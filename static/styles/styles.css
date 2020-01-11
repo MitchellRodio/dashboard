@@ -41,6 +41,7 @@ body {
     display: block;
     font-size: 20px;
     transition-duration: 1s;
+    border: none;
 }
 
 .button:hover {
