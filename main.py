@@ -10,5 +10,6 @@ def index():
 
 @main.route("/dashboard")
 @users.logged_in
+@users.has_membership
 def dashboard(user):
     return "This page is kinda empty."
