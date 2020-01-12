@@ -18,6 +18,7 @@ class Membership():
     def get_expires_in(self):
         t = (self.duration + self.created_at) - time.time()
         self.expires_in = datetime.datetime.fromtimestamp(t)
+        print(self.expires_in)
     def is_active(self):
         if self.duration == 0:
             return False
