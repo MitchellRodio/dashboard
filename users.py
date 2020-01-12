@@ -14,6 +14,7 @@ class Membership():
         self.created_at = created_at
         self.duration = duration
         self.duration_display = self.duration // 86400
+        self.get_expires_in()
     def get_expires_in(self):
         t = (self.duration + self.created_at) - time.time()
         self.expires_in = datetime.datetime.fromtimestamp(t)
