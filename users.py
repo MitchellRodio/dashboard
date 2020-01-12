@@ -16,9 +16,7 @@ class Membership():
         self.duration_display = self.duration // 86400
         self.get_expires_in()
     def get_expires_in(self):
-        t = (self.duration + self.created_at) - time.time()
-        self.expires_in = datetime.datetime.fromtimestamp(t)
-        print(self.expires_in)
+        self.expires_in = datetime.datetime.fromtimestamp(self.duration + self.created_at) - datetime.datetime.fromtimestamp(time.time())
     def is_active(self):
         if self.duration == 0:
             return False
