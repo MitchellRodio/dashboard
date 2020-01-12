@@ -12,4 +12,4 @@ def index():
 @users.logged_in
 @users.has_membership
 def dashboard(user):
-    return "This page is kinda empty."
+    return render_template("dashboard.html", user=user)

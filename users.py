@@ -2,6 +2,7 @@ from flask import session, request, url_for, redirect
 
 import functools
 import time
+import datetime
 
 from config import GUILD_ID
 import database as db
@@ -12,6 +13,10 @@ class Membership():
         self.discord_id = discord_id
         self.created_at = created_at
         self.duration = duration
+        self.duration_display = self.duration // 86400
+    def get_expires_in(self):
+        t = (self.duration + self.created_at) - time.time()
+        self.expire_time = datetime.datetime.fromtimestamp(t)
     def is_active(self):
         if self.duration == 0:
             return False

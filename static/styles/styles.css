@@ -16,6 +16,20 @@ input[type=text] {
     box-sizing: border-box;
 }
 
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    color: #ffffffb3;
+    display: block;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #ffffffb3;
+    display: block;
+}
+
 body {
     background-color: #090b16;
 }
@@ -33,6 +47,12 @@ body {
     transform: translate(-50%, -50%);
     transition-duration: 1s;
     display: block;
+}
+
+.content-container {
+    width: 90%;
+    margin: 0 auto;
+    margin: block;
 }
 
 .content-title {
