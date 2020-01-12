@@ -13,9 +13,9 @@ class Membership():
         self.discord_id = discord_id
         self.created_at = created_at
         self.duration = duration
-        self.duration_display = self.duration // 86400 # Converting from seconds to days
+        self.duration_display = str(self.duration // 86400) # Converting from seconds to days
         self.expires_in = (self.duration + self.created_at) - time.time()
-        self.expires_in_display = self.expires_in // 86400
+        self.expires_in_display = str(self.expires_in // 86400)
     def is_active(self):
         if self.duration == 0:
             return False
