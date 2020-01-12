@@ -22,7 +22,7 @@ h3 {
     font-size: 22px;
     color: #ffffffb3;
     display: block;
-    margin: none;
+    margin: 0;
 }
 
 p {
@@ -30,7 +30,7 @@ p {
     font-size: 18px;
     color: #ffffffb3;
     display: block;
-    margin: none;
+    margin: 0;
 }
 
 body {
