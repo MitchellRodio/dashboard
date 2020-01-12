@@ -22,7 +22,9 @@ h3 {
     font-size: 22px;
     color: #ffffffb3;
     display: block;
-    margin: 8px 0;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    color: #7B4FFE;
 }
 
 p {
