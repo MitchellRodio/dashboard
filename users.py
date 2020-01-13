@@ -83,7 +83,7 @@ def has_membership(func):
             return func(*args, **kwargs)
         else:
             session["next"] = request.url_rule.rule
-            return redirect(url_for("auth.key"))
+            return redirect(url_for("auth.enter_key"))
     return decorated_function
 
 def get_user():
