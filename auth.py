@@ -38,9 +38,6 @@ def token():
         print(user.membership.is_active())
         if user.membership.is_active():
             discord_interaction.join_user(json["access_token"], GUILD_ID, user.discord_id)
-            next_url = session.get("next")
-            if next_url:
-                return redirect(next_url)
             return redirect("main.dashboard")
         else:
             discord_interaction.kick_user(GUILD_ID, user.discord_id)
