@@ -41,11 +41,11 @@ def token():
             return redirect(url_for("main.dashboard"))
         else:
             discord_interaction.kick_user(GUILD_ID, user.discord_id)
+            return redirect(url_for("auth.enter_key"))
     else:
         session["logged_in"] = False
         session["access_token"] = None
         return redirect(url_for("main.index"))
-    return redirect(url_for("auth.enter_key"))
 
 @auth.route("/key", methods=["GET", "POST"])
 @users.logged_in
