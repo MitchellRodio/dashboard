@@ -33,11 +33,8 @@ def token():
         session["access_token"] = json["access_token"]
         discord_id = session["discord_data"]["id"]
         user = users.User(discord_id)
-        print(user)
         if not user.exists():
             user.create()
-        print(user)
-        print(user.membership.is_active())
         if user.membership.is_active():
             discord_interaction.join_user(json["access_token"], GUILD_ID, user.discord_id)
             return redirect(url_for("main.dashboard"))
@@ -56,11 +53,9 @@ def enter_key(user):
         key = request.form.get("key")
         success = user.create_membership(key)
         if success:
-            print("Success!")
             user.join(session["access_token"])
             return redirect(url_for("main.dashboard"))
         else:
-            print("Failure!")
             return render_template("enter_key.html", errors=("Key not found.",))
     else:
         return render_template("enter_key.html")
