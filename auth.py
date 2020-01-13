@@ -57,9 +57,6 @@ def enter_key(user):
         if success:
             print("Success!")
             user.join(session["access_token"])
-            next_url = session.get("next")
-            if next_url:
-                return redirect(next_url)
             return redirect("main.dashboard")
         else:
             print("Failure!")
