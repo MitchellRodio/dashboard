@@ -32,8 +32,8 @@ def token():
         session["logged_in"] = True
         session["access_token"] = json["access_token"]
         discord_id = session["discord_data"]["id"]
-        print(user)
         user = users.User(discord_id)
+        print(user)
         if not user.exists():
             user.create()
         print(user)
