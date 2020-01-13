@@ -71,7 +71,6 @@ def logged_in(func):
         if user:
             return func(user, *args, **kwargs)
         else:
-            session["next"] = request.url_rule.rule
             return redirect(url_for("auth.login"))
     return decorated_function
 
@@ -79,10 +78,11 @@ def has_membership(func):
     @functools.wraps(func)
     def decorated_function(*args, **kwargs):
         user = get_user()
-        if user and user.membership.is_active():
+        if not user:
+            return redirect(url_for("auth.login"))
+        if user.membership.is_active():
             return func(*args, **kwargs)
         else:
-            session["next"] = request.url_rule.rule
             return redirect(url_for("auth.enter_key"))
     return decorated_function
 
