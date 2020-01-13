@@ -46,7 +46,10 @@ class User():
         membership = False
         if result:
             cur.execute("DELETE FROM keys WHERE key=%s", (key,))
-            cur.execute("INSERT INTO memberships (discord_id, started_at, duration) VALUES (%s, %s, %s)", (self.discord_id, time.time(), result[0]))   
+            if self.membership.is_active():
+                cur.execute("UPDATE memberships SET started=%s AND duration=%s WHERE discord_id=%s", (time.time(), result[0], self.discord_id))
+            else:
+                cur.execute("INSERT INTO memberships (discord_id, started_at, duration) VALUES (%s, %s, %s)", (self.discord_id, time.time(), result[0]))   
             conn.commit()
             self.get_membership()
             membership = True
