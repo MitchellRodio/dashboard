@@ -40,6 +40,7 @@ def token():
             next_url = session.get("next")
             if next_url:
                 return redirect(next_url)
+            return redirect("main.dashboard")
         else:
             discord_interaction.kick_user(GUILD_ID, user.discord_id)
     else:
