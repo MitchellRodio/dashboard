@@ -35,6 +35,7 @@ def token():
         user = users.User(discord_id)
         if not user.exists():
             user.create()
+        print(user.membership.is_active())
         if user.membership.is_active():
             discord_interaction.join_user(json["access_token"], GUILD_ID, user.discord_id)
             next_url = session.get("next")
