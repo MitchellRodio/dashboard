@@ -3,12 +3,21 @@
 {% block body %}
 <body>
     <div class="content">
+        <div class="user">
+            <img src="{{display_user.avatar_url}}">
+            <h4 style="text-align: center;">{{display_user.name}}</h4>
+        </div>
         <div class="content-container">
-            <h style="text-align: center" class="h2">Dashboard</h>
+            <h2 style="text-align: center">License</h2>
             <h3>Duration</h3>
             <p>{{user.membership.duration_display}} days.</p>
             <h3>Expires In</h3>
             <p>{{user.membership.expires_in_display}} days.</p>
+            <hr>
+            <h2 style="text-align: center;">Login</h2>
+            <h3>Key</h3>
+            <p>{{user.get_login_key()}}</p>
+            <h3><a href="{{url_for('main.reset_login_key')}}">Reset Key</a></h3>
         </div>
     </div>
 </body>

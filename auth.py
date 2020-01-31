@@ -1,11 +1,13 @@
-from flask import Blueprint, redirect, request, session, url_for, render_template
-
+from flask import Blueprint, redirect, request, session, url_for, render_template, jsonify
 import urllib
 import requests
+
+import time
 
 from config import CLIENT_ID, AUTHORIZE_URL, MY_URL, CLIENT_SECRET, TOKEN_URL, GUILD_ID
 import users
 import discord_interaction
+import database as db
 
 scopes = "identify email guilds.join"
 
@@ -59,3 +61,33 @@ def enter_key(user):
             return render_template("enter_key.html", errors=("Key not found.",))
     else:
         return render_template("enter_key.html")
+
+@auth.route("/app/auth")
+def app_auth():
+    key = request.args.get("key")
+    response = {"login": False}
+    if key:
+        conn, cur = db.get_conn()
+        cur.execute("SELECT discord_id FROM login_keys WHERE key=%s", (key,))
+        result = cur.fetchone()
+        if result:
+            cur.execute("SELECT address, last_login FROM ip_address_logins WHERE discord_id=%s", (result[0],))
+            result1 = cur.fetchone()
+            current_time = time.time()
+            if result1:
+                if result1[0] != request.remote_addr and result1[1] - current_time < 10800:# 10800 = 3hrs
+                    response["reason"] = "Cannot use multiple IP addresses in quick succession."
+                else:
+                    response["login"] = True
+                    response["discord_id"] = result[0]
+                cur.execute("UPDATE ip_address_logins SET address=%s, last_login=%s, logins=logins+1 WHERE discord_id=%s", (request.remote_addr, current_time, result[0]))
+            else:
+                response["login"] = True
+                response["discord_id"] = result[0]
+                cur.execute("INSERT INTO ip_address_logins VALUES (%s, %s, 0, %s)", (result[0], request.remote_addr, current_time))
+        else:
+            response["reason"] = "Invalid key."
+        conn.commit()
+        db.put_conn(conn, cursor=cur)
+
+    return jsonify(response)

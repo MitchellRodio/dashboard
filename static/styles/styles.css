@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    color: #7B4FFE;
 }
 
 input[type=text] {
@@ -20,11 +21,20 @@ h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 22px;
-    color: #ffffffb3;
     display: block;
     margin-top: 8px;
     margin-bottom: 4px;
     color: #7B4FFE;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    color: #ffffffb3;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 4px;
 }
 
 p {
@@ -44,7 +54,7 @@ body {
     border-radius: 8px;
     width: 40%;
     margin: 0;
-    padding: 32px;
+    padding: 16px 32px 32px 32px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -60,7 +70,7 @@ body {
     margin: block;
 }
 
-.h2 {
+h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 26px;
     color: #ffffffb3;
@@ -86,4 +96,26 @@ body {
 .button:hover {
     background-color: #6532fe;
     border-radius: 8px;
+}
+
+.user {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+.user img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 84px;
+    max-height: 84px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user h4 {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
 }
